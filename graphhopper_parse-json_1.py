@@ -69,7 +69,10 @@ while True:
     print("Directions from " + orig[3] + " to " + dest[3])
     print("=================================================")
     if paths_status == 200:
-        print("Distance Traveled: " + str(paths_data["paths"][0]["distance"]) + "m")
+        miles = (paths_data["paths"][0]["distance"])/1000/1.61
+        km = (paths_data["paths"][0]["distance"])/1000 
+
+        print("Distance Traveled: {0:.1f} miles / {1:.1f} km".format(miles, km))
         print("Trip Duration: " + str(paths_data["paths"][0]["time"]) + "millisec")
         print("=================================================") 
 
